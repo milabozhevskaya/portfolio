@@ -1,0 +1,257 @@
+.contacts {
+  width: 100%;
+  height: 700px;
+  max-height: 78.1vw;
+  background-image: url('../assets/img/bg-contacts.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background-image .8s;
+  background-position: center 0;
+  padding-top: 62px;
+
+  &__container {
+    display: flex;
+    justify-content: flex-end;
+
+    @include phones {
+      justify-content: center;
+    }
+  }
+
+  &__content {
+    width: 60%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+
+    @include phones {
+      width: 70%;
+
+      @media screen and (max-width: 600px) {
+        width: 80%;
+      }
+
+      @media screen and (max-width: 500px) {
+        width: 88%;
+      }
+
+      @media screen and (max-width: 400px) {
+        width: 96%;
+      }
+    }
+  }
+
+  &__title {
+    text-align: left;
+    margin-bottom: 40px;
+
+    span {
+      padding: 0;
+      background-color: transparent;
+
+      @include phones {
+        @media screen and (max-width: 600px) {
+          font-size: 30px;
+        }
+
+        @media screen and (max-width: 400px) {
+          font-size: 27px;
+        }
+      }
+    }
+
+    &::before {
+      display: none;
+    }
+
+    @include tablets {
+      margin-bottom: 23px;
+    }
+
+    @include phones {
+      text-align: center;
+      margin-bottom: 33px;
+
+      @media screen and (max-width: 600px) {
+        margin-bottom: 13px;
+      }
+    }
+  }
+
+  &__form {
+    width: 100%;
+    color: var(--gold);
+  }
+
+  .form {
+    &__container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      @include phones {
+        align-items: center;
+      }
+    }
+
+    &__label {
+      width: 100%;
+      margin-bottom: 20px;
+
+      &.message {
+        margin-bottom: 26px;
+
+        @include phones {
+          margin-bottom: 28px;
+        }
+      }
+
+      @include phones {
+        @media screen and (max-width: 500px) {
+          margin-bottom: 10px;
+          
+          &.message {
+            margin-bottom: 18px;
+          }
+        }
+      }
+    }
+
+    &__input {
+      background: rgba(0, 0, 0, 0.5);
+      border: 2px solid var(--gold);
+      outline: transparent 0px;
+      width: 100%;
+      padding: 3px 18px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 40px;
+      color: currentColor;
+      transition: border .6s;
+
+      &::placeholder {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 40px;
+        color: currentColor;
+        transition: .6s;
+
+        @include phones {
+          @media screen and (max-width: 600px) {
+            font-size: 18px;
+            line-height: 30px;
+          }
+
+          @media screen and (max-width: 500px) {
+            font-size: 17px;
+            line-height: 24px;
+          }
+        }
+  
+      }
+
+      &.messsage__input {
+        resize: none
+      }
+
+      &:focus {
+        border: 2px solid $main;
+        color: white;
+
+        &::placeholder {
+          opacity: .4;
+          transition: .6s;
+        }
+  
+  
+      }
+
+      @include phones {
+        @media screen and (max-width: 600px) {
+          font-size: 18px;
+          line-height: 30px;
+        }
+
+        @media screen and (max-width: 500px) {
+          padding: 3px 12px;
+          font-size: 17px;
+          line-height: 24px;
+        }
+
+        @media screen and (max-width: 400px) {
+          padding: 3px 6px;
+        }
+      }
+    }
+
+    .message__input {
+      min-height: 100px;
+      resize: none;
+    }
+
+    &__btn {
+      &.btn {
+        &:before {
+          background: radial-gradient(50% 50% at 50% 50%, var(--gold) 0%, var(--main) 60%);
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1500px) {
+    height: 100vh;
+    max-height: 800px;
+  }
+
+  @media screen and (min-width: 2000px) {
+    max-height: 900px;
+  }
+
+  @media screen and (max-width: 1380px) {
+    height: 100vh;
+  }
+
+  @include tablets {
+    min-height: 550px;
+    padding-top: 32px;
+  }
+
+  @include phones {
+    padding-top: 50px;
+
+    @media screen and (max-width: 700px) {
+      max-height: 90.2vw;
+      padding-top: 40px;
+    }
+
+    @media screen and (max-width: 600px) {
+      max-height: 96.2vw;
+      // background-position: 28% 0;
+      padding-top: 30px;
+    }
+
+    @media screen and (max-width: 520px) {
+      max-height: 123vw;
+      background-position: 34% 0;
+      min-height: 480px;
+    }
+  }
+}
+
+html[data-theme='light'] {
+  .contacts {
+    background-image: url('../assets/img/bg-contacts-light.png');
+    transition: background-image .8s;
+  }
+
+  .form__input {
+    background: rgba(255, 255, 255, 0.5);
+    color: $grey-dark;
+
+    &:focus {
+      color: var(--main);
+    }
+  }
+}

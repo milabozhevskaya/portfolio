@@ -1,0 +1,13 @@
+.title {
+  font-family: "Merriweather", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  @include font-size(60, 32);
+  line-height: 120px;
+  transition: color .8s;
+
+  @include phones {
+    font-weight: normal;
+    line-height: 64px;
+  }
+}

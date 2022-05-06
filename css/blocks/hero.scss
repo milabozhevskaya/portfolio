@@ -1,0 +1,178 @@
+.hero {
+  height: 910px;
+  max-height: 63.2vw;
+  background-image: url('../assets/img/bg-hero.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--main);
+  background-position: center center;
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: background-image .8s, color .8s;
+
+  &__container {
+    padding-left: 60px;
+    padding-bottom: 82px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+
+    @include notes {
+      padding-left: 20px;
+      padding-bottom: 40px;
+      padding-top: 10px;
+    }
+
+    @include phones {
+      padding-left: 0;
+      padding-bottom: 0px;
+      padding-top: 16px;
+
+      @media screen and (max-width: 700px) {
+        padding-top: 60px;
+      }
+
+      @media screen and (max-width: 650px) {
+        padding-top: 80px;
+        padding-bottom: 20px;
+      }
+
+      @media screen and (max-width: 590px) {
+        justify-content: flex-end;
+        padding-bottom: 60px;
+      }
+
+      @media screen and (max-width: 500px) {
+        padding-top: 100px;
+        padding-bottom: 70px;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+
+    @include tablets {
+      margin-bottom: 5px;
+    }
+
+    @include phones {
+      margin-bottom: 20px;
+
+      @media screen and (max-width: 650px) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__desc {
+    width: 60%;
+    max-width: 470px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 40px;
+    margin-bottom: 25px;
+    transition: color .8s;
+
+    @include notes {
+      line-height: 34px;
+    }
+
+    @include tablets {
+      margin-bottom: 30px;
+      line-height: 28px;
+    }
+
+    @include phones {
+      margin-bottom: 60px;
+      line-height: 24px;
+
+      @media screen and (max-width: 650px) {
+        font-size: 18px;
+        margin-bottom: 20px;
+        width: 70%;
+        max-width: 380px;
+      }
+
+      @media screen and (max-width: 500px) {
+        width: 95%;
+        max-width: 400px;
+      }
+    }
+  }
+
+  &__btn {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    &.btn {
+      &:before {
+        background: radial-gradient(50% 50% at 50% 50%, var(--gold) 0%, var(--main) 60%);
+      }
+    }
+  }
+
+  @media screen and (min-width: 1600px) {
+    min-height: 800px;
+    height: 100vh;
+    max-height: 910px;
+  }
+
+  @media screen and (min-width: 2000px) {
+    max-height: 1000px;
+  }
+
+  @media screen and (max-width: 1380px) {
+    height: 100vh;
+    max-height: 910px;
+    min-height: 700px;
+  }
+
+  @include tablets {
+    background-image: url('../assets/img/bg-hero-phone.png');
+    transition: background-image .8s;
+    background-position: center center;
+    min-height: 400px;
+    max-height: 140.8vw;
+    padding-top: 40px;
+  }
+
+  @include phones {
+    max-height: 190.8vw;
+    // max-height: 76.8vw;
+    background-position: center center;
+    margin-bottom: 0px;
+    padding-top: 0px;
+
+    @media screen and (max-width: 650px) {
+      background-position: 71% 0px;
+    }
+
+    @media screen and (max-width: 500px) {
+      max-height: 200.8vw;
+      // background-position: 71% 0px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+html[data-theme='light'] {
+  .hero {
+    background-image: url('../assets/img/bg-hero--light.png');
+    transition: background-image .8s;
+
+    &__btn {
+      &.btn {
+        &:before {
+          background: radial-gradient(50% 50% at 50% 50%, var(--main) 0%, var(--gold) 60%);
+        }
+      }
+    }
+
+    @include tablets {
+      transition: background-image .8s;
+      background-image: url('../assets/img/bg-hero-phone--light.png');
+    }
+  }
+}

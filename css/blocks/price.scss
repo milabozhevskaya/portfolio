@@ -1,0 +1,162 @@
+.price {
+  padding-top: 80px;
+  padding-bottom: 100px;
+  width: 100%;
+  color: var(--main);
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+
+    @include tablets {
+      margin-bottom: 50px;
+    }
+
+    @include phones {
+      @media screen and (max-width: 500px) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @include tablets {
+      @media screen and (max-width: 880px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 50px;
+      }
+    }
+
+    @include phones {
+      @media screen and (max-width: 550px) {
+        row-gap: 20px;
+      }
+    }
+  }
+
+  &__item {
+    flex-grow: 1;
+    border: 3px solid $gold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 8px;
+    transition: filter .8s;
+
+    &:not(:last-child) {
+      margin-right: 25px;
+
+      @include notes{
+        margin-right: 20px;
+      }
+
+      @include tablets {
+        margin-right: 10px;
+
+        @media screen and (max-width: 880px) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &:hover {
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      transition: filter .8s;
+
+      .price__price {
+        color: var(--gold);
+        transition: color .8s;
+      }
+    }
+
+    @include tablets {
+      padding: 30px 4px;
+
+      @media screen and (max-width: 880px) {
+        width: 95%;
+        max-width: 418px;
+        padding: 40px 8px;
+      }
+    }
+
+    @include phones {
+      @media screen and (max-width: 550px) {
+        max-width: 380px;
+        padding: 20px 4px 30px;
+      }
+    }
+  }
+
+  &__name {
+    font-family: "Merriweather", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 56px;
+    margin-bottom: 20px;
+    color: var(--main);
+    transition: color .8s;
+
+    @include phones {
+      @media screen and (max-width: 550px) {
+        margin-bottom: 2px;
+      }
+    }
+  }
+
+  &__price {
+    font-family: "Merriweather", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 48px;
+    color: var(--main);
+    margin-bottom: 20px;
+    transition: color .8s;
+
+    @include phones {
+      @media screen and (max-width: 550px) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 36px;
+    color: var(--main);
+    margin-bottom: 40px;
+    transition: color .8s;
+
+    @include tablets {
+      margin-bottom: 43px;
+    }
+
+    @include phones {
+      @include phones {
+        @media screen and (max-width: 550px) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  @include phones {
+    padding-bottom: 82px;
+  }
+}

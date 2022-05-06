@@ -1,0 +1,151 @@
+.btn {
+  width: 220px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 40px;
+  padding: 6px 0px;
+  color: var(--btn-color);
+  background-color: var(--btn-background);
+  border: 2px solid var(--btn-border);
+  overflow: hidden;
+  transition: .6s;
+  position: relative;
+
+  span {
+    color: currentColor;
+    pointer-events: none;
+    position: relative;
+  }
+
+  &:before {
+    // --size: 0;
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(50% 50% at 50% 50%, var(--main) 0%, var(--gold) 20%);
+    filter: blur(16px);
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+    transition: width 0.6s ease, height 0.6s ease, background-color .6s ease;
+    display: block;
+  }
+
+  &:hover {
+    color: var(--btn-color-hover);
+    background-color: var(--btn-background-hover);
+    border: 2px solid var(--btn-border-hover);
+    transition: .6s;
+  }
+
+  &--transparent {
+    color: var(--btn-transparent-color);
+    border: 2px solid var(--btn-transparent-border);
+    background-color: var(--btn-transparent-background);
+  
+    &:hover {
+      color: var(--btn-transparent-color-hover);
+      background-color: var(--btn-transparent-background-hover);
+      border: 2px solid var(--btn-transparent-border-hover);
+      transition: .6s;
+    }
+  }
+
+  &--price {
+    color: var(--btn-price-color);
+    border: 2px solid var(--btn-price-border);
+    background-color: var(--btn-price-background);
+  
+    &:hover {
+      color: var(--btn-price-color-hover);
+      border: 2px solid var(--btn-price-border-hover);
+      background-color: var(--btn-price-background-hover);
+        transition: .6s;
+
+        &:before {
+          background: radial-gradient(50% 50% at 50% 50%, var(--gold) 0%, var(--main) 60%);
+        }
+    }
+
+    @include phones {
+      @media screen and (max-width: 380px) {
+        width: 170px;
+        font-size: 17px;
+      }
+    }
+  }
+
+  &--active {
+    background-color: var(--btn-background-active);
+    color: var(--btn-color-active);
+    border: 2px solid var(--btn-border-active);
+    transition: .6s;
+
+    &:hover {
+      background-color: var(--btn-background-active--hover);
+      color: var(--btn-color-active--hover);
+      border: 2px solid var(--btn-border-active--hover);
+      transition: .6s;
+
+      &:before {
+        background: radial-gradient(50% 50% at 50% 50%, var(--gold) 0%, var(--main) 60%);
+      }
+    }
+  }
+
+  @include phones {
+    @media screen and (max-width: 650px) {
+      width: 200px;
+      padding: 5px 0px;
+    }
+
+    @media screen and (max-width: 450px) {
+      width: 160px;
+      padding: 4px 0px;
+      font-size: 18px;
+    }
+
+    @media screen and (max-width: 380px) {
+      width: 150px;
+      padding: 3px 0px;
+    }
+  }
+
+  &--price {
+    @include phones {
+      @media screen and (max-width: 380px) {
+        width: 170px;
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+html[data-theme='light'] {
+  .btn {
+    &:hover {
+      &:before {
+        background: radial-gradient(50% 50% at 50% 50%, var(--main) 0%, var(--gold) 60%);
+      }
+    }
+
+    &--active {
+      &:hover {
+        &:before {
+          background: radial-gradient(50% 50% at 50% 50%, var(--main) 0%, var(--gold) 60%);
+        }
+      }
+    }
+
+    &--price {
+      &:hover {
+        &:before {
+          background: radial-gradient(50% 50% at 50% 50%, var(--main) 0%, var(--gold) 60%);
+        }
+      }
+    }
+  }
+}

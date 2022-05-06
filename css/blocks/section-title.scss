@@ -1,0 +1,63 @@
+.section-title {
+  position: relative;
+  text-align: center;
+
+  span {
+    display: inline-block;
+    font-family: "Merriweather", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    @include font-size(40, 32);
+    line-height: 80px;
+    color: var(--section-title);
+    padding: 0 20px;
+    background-color: var(--body-background);
+    transition: .8s;
+
+    @include phones {
+      @media screen and (max-width: 700px) {
+        padding: 0 16px;
+      }
+
+      @media screen and (max-width: 500px) {
+        padding: 0 12px;
+      }
+
+      @media screen and (max-width: 400px) {
+        padding: 0 10px;
+      }
+    }
+
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 49vw;
+    max-width: 1400px;
+    height: 2px;
+    background-color: var(--section-title);
+    transition: background-color .8s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+
+    @include phones {
+      width: 47vw;
+
+      @media screen and (max-width: 700px) {
+        width: 97vw;
+        max-width: 400px;
+      }
+
+      @media screen and (max-width: 500px) {
+        max-width: 320px;
+      }
+
+      @media screen and (max-width: 400px) {
+        max-width: 260px;
+      }
+    }
+  }
+}

@@ -1,0 +1,152 @@
+.portfolio {
+  padding-top: 80px;
+  width: 100%;
+  margin-bottom: 20px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+
+    @include phones {
+      margin-bottom: 50px;
+
+      @media screen and (max-width: 450px) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__btn-list {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+
+    @include tablets {
+      max-width: 550px;
+      justify-content: center;
+      flex-wrap: wrap;
+      column-gap: 15px;
+      row-gap: 15px;
+    }
+
+    @include phones {
+      max-width: 450px;
+      column-gap: 5px;
+      row-gap: 5px;
+
+      @media screen and (max-width: 450px) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__btn-item {
+    &:not(:last-child) {
+      margin-right: 5px;
+    
+      @include tablets {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__images {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 25px;
+
+    @include tablets {
+      justify-content: center;
+      width: 85%;
+      max-width: 685px;
+      row-gap: 30px;
+    }
+
+    @include phones {
+      width: 100%;
+      max-width: 768px;
+      row-gap: 25px;
+
+      @media screen and (max-width: 450px) {
+        row-gap: 15px;
+      }
+    }
+  }
+
+  &__img {
+    width: calc((100% - 50px) / 3);
+    max-width: 450px;
+    overflow: hidden;
+
+    &:not(:nth-child(3n)) {
+      margin-right: 25px;
+
+      @include tablets {
+        margin-right: 0;
+      }
+
+      @include phones {
+        margin-right: 0;
+      }
+
+      // @include phones {
+      //   aspect-ratio: 0.9 / 1.13;
+      // }
+    }
+
+    &:not(:nth-child(2n)) {
+      @include tablets {
+        margin-right: 30px;
+      }
+
+      @include phones {
+        margin-right: 0;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .portfolio__pic {
+        transform: scale(1.03);
+        transition: .6s;
+      }
+    }
+
+    @include tablets {
+      width: calc((100% - 30px) / 2);
+    }
+
+    @include phones {
+      width: 98%;
+      max-width: 450px;
+    }
+  }
+
+  &__pic {
+    display: block;
+    width: 100%;
+    transition: .6s;
+    object-fit: cover;
+  }
+
+  @include phones {
+    margin-bottom: 38px;
+  }
+}
+
+.slowChanges {
+  animation: fade 1000ms linear 1;
+  animation-delay: 200ms;
+}
+
+@keyframes fade {
+  0% { opacity: 1 }
+  50% { opacity: 0 }
+  100% { opacity: 1 }
+}
